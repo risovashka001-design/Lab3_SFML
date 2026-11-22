@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations"><ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration><ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration></ItemGroup>
+  <PropertyGroup Label="Globals"><VCProjectVersion>17.0</VCProjectVersion><Keyword>Win32Proj</Keyword><ProjectGuid>{AAE03419-8F38-4471-B68A-099CE1F209D2}</ProjectGuid><RootNamespace>Lab3_Visual</RootNamespace><WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration"><ConfigurationType>Application</ConfigurationType><UseDebugLibraries>true</UseDebugLibraries><PlatformToolset>v143</PlatformToolset><CharacterSet>Unicode</CharacterSet></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration"><ConfigurationType>Application</ConfigurationType><UseDebugLibraries>false</UseDebugLibraries><PlatformToolset>v143</PlatformToolset><CharacterSet>Unicode</CharacterSet><WholeProgramOptimization>true</WholeProgramOptimization></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup><OutDir>$(SolutionDir)build\$(Configuration)\</OutDir><IntDir>$(SolutionDir)build\obj\$(ProjectName)\$(Configuration)\</IntDir><TargetName>Lab3_Visual</TargetName></PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile><WarningLevel>Level3</WarningLevel><ConformanceMode>true</ConformanceMode><LanguageStandard>stdcpp17</LanguageStandard><PrecompiledHeader>NotUsing</PrecompiledHeader><MultiProcessorCompilation>true</MultiProcessorCompilation><AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions><AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)third_party\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories><PreprocessorDefinitions>NOMINMAX;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions></ClCompile>
+    <Link><SubSystem>Console</SubSystem><AdditionalLibraryDirectories>$(ProjectDir)third_party\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories></Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"><ClCompile><PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions><Optimization>Disabled</Optimization><DebugInformationFormat>ProgramDatabase</DebugInformationFormat></ClCompile><Link><GenerateDebugInformation>true</GenerateDebugInformation><AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies></Link></ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"><ClCompile><PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions><Optimization>MaxSpeed</Optimization></ClCompile><Link><GenerateDebugInformation>false</GenerateDebugInformation><AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies></Link></ItemDefinitionGroup>
+  <ItemGroup><ClCompile Include="src\World.cpp" /><ClCompile Include="src\Collisions.cpp" /><ClCompile Include="src\Scenes.cpp" /><ClCompile Include="src\main_sfml.cpp" /></ItemGroup><ItemGroup><ClInclude Include="src\World.h" /><ClInclude Include="src\Body.h" /><ClInclude Include="src\Collisions.h" /><ClInclude Include="src\Scenes.h" /></ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Target Name="VerifySFML" BeforeTargets="PrepareForBuild">
+ <Error Condition="!Exists('$(ProjectDir)third_party\SFML\include\SFML\Graphics.hpp')" Text="SFML missing. Run setup_sfml.bat: SFML 2.6.2 VC17 x64." />
+ <Error Condition="!Exists('$(ProjectDir)third_party\SFML\lib\sfml-graphics-d.lib')" Text="SFML debug lib missing. Download VS2022 VC17 x64 not MinGW/SFML3." />
+</Target>
+<Target Name="CopySFMLLibraries" AfterTargets="Build">
+ <ItemGroup><RequiredDLL Include="$(ProjectDir)third_party\SFML\bin\sfml-*.dll" /></ItemGroup>
+ <Copy SourceFiles="@(RequiredDLL)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+</Target>
+</Project>

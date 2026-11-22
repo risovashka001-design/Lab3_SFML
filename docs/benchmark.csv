@@ -1,0 +1,16 @@
+scene,mode,frames,mean_cpu_physics_ms_per_frame,mean_240_substeps_per_frame,dynamic_dynamic_impulses,dynamic_static_impulses,mixed_impulses,ccd_events
+Fast projectile / thin wall,60 Hz (control),360,0.0003744444,0,0,311,0,0
+Fast projectile / thin wall,Multi-rate 60/240 Hz,360,0.001678333,4,0,1223,0,0
+Fast projectile / thin wall,CCD 60 Hz,360,0.0003936111,0,0,307,0,307
+Fast / ordinary collision,60 Hz (control),360,0.001262222,0,1,595,1,0
+Fast / ordinary collision,Multi-rate 60/240 Hz,360,0.002015278,4,1,1458,1,0
+Fast / ordinary collision,CCD 60 Hz,360,0.000365,0,1,590,1,591
+Main experiment,60 Hz (control),360,0.02784222,0,44838,37765,7591,0
+Main experiment,Multi-rate 60/240 Hz,360,0.07926528,4,60074,60701,29682,0
+Main experiment,CCD 60 Hz,360,0.06537167,0,69504,45215,11420,1711
+Stable block stack,60 Hz (control),360,0.0118,0,46440,11892,0,0
+Stable block stack,Multi-rate 60/240 Hz,360,0.01101611,0,46440,11892,0,0
+Stable block stack,CCD 60 Hz,360,0.019545,0,69664,17842,0,129
+Fast projectile hits 15-block stack,60 Hz (control),360,0.01309417,0,57369,12065,1,0
+Fast projectile hits 15-block stack,Multi-rate 60/240 Hz,360,0.02507444,4,57253,12577,1,0
+Fast projectile hits 15-block stack,CCD 60 Hz,360,0.02237861,0,71345,18013,1,331

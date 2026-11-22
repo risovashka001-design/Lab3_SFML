@@ -1,0 +1,4 @@
+mode,fast_normal_impulses,normal_and_fast_dynamic_impulses,dynamic_static_impulses,maximum_stack_displacement_px,peak_stack_speed_px_s,last_second_drift_px,last_second_speed_px_s
+60 Hz (control),1,45489,8813,2.93527,34.6124,0,3.92816
+Multi-rate 60/240 Hz,1,45373,9325,2.96779,34.1466,0,3.92816
+CCD 60 Hz,1,53521,13131,1.20418,24.929,0,2.02871

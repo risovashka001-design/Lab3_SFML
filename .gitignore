@@ -1,0 +1,41 @@
+# Visual Studio caches / local user configuration
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.ipch
+*.vsidx
+
+# Generated binaries and build intermediates
+build/
+Debug/
+Release/
+x64/
+*.obj
+*.pdb
+*.exe
+*.ilk
+*.tlog
+*.lastbuildstate
+*.log
+
+# SFML runtime / development kit installed by setup scripts
+third_party/SFML/
+SFML-2.6.2-windows-vc17-64-bit.zip
+.sfml-unpack/
+.sfml-extract-temp/
+.sfml-download.part
+
+# Test-generated measurements in project root (curated copies live in docs/)
+/benchmark.csv
+/impact_stability.csv
+/synchronization_trace.csv
+
+# Temporary and editor files
+~$*
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
